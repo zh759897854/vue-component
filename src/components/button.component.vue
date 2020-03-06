@@ -62,8 +62,12 @@
             <button class="common-btn" :class="{'bgc-btn': btnBg}" :style="styleObject" @click="confirm" v-if="!btnIcon">{{btnText}}</button>
 
             <!--有icon的按钮-->
-            <button class="common-btn btn-icon" :class="{'bgc-btn-color': btnIcon}" :style="styleObject"
-                    @click="confirm" @mousedown="ChangeIcon" @mouseup="resetIcon" v-else>{{btnText}}
+            <button class="common-btn btn-icon"
+                    :class="{'bgc-btn-color': btnIcon}"
+                    :style="styleObject"
+                    @click="confirm"
+                    @mousedown="ChangeIcon"
+                    @mouseup="resetIcon" v-else>{{btnText}}
             </button>
         </div>
     </div>

@@ -23,7 +23,7 @@
         },
         methods: {
             confirm() {
-                console.log('按钮点击')
+                console.log('按钮点击');
             }
         }
     }
