@@ -22,7 +22,7 @@
             .checkbox-icon {
                 position: absolute;
                 left: 0;
-                top: 2px;
+                top: 3px;
                 display: inline-block;
                 width: 14px;
                 height: 14px;
@@ -117,10 +117,11 @@
      * @params :<check :checkBoxData="checkBoxData" v-model="valueData"></check>
      *          checkBoxData: type: Array  父级传递数据
      *          multiple: type: Boolean, 单选多选模式 默认单选
-     *          selectIndex: type: Array, 默认显示第几个 与父级的v-model尽量不要并存  要么传value值 要么传index value会覆盖index效果
-     *          selectAllBtn: type: Boolean, 复选情况下是否有全选反选按钮
+     *          selectIndex: type: Array, 默认显示第几个 与父级的v-model尽量不要并存  要么传value值 要么传index value会覆盖index效果 建议传index value可能报错
+     *          selectAllBtn: type: Boolean, 复选情况下是否有全选反选按钮 默认不显示
      *          setWidth： String 宽度
-     *          labelType: 必传 复用时label标签唯一区别标识
+     *          labelType: 必传 任意值 复用时label标签唯一区别标识
+     *          valueChange <function> 选中值发生变化事件
      * @return : String '中国,北京'
      */
     export default{
@@ -159,7 +160,7 @@
             selectAllBtn: { // 是否有全选按钮
                 type: Boolean,
                 default: function() {
-                    return true
+                    return false
                 }
             },
             setWidth: {
@@ -178,13 +179,6 @@
                 type: [String,Number],
                 default: function() {
                     return ''
-                }
-            }
-        },
-        watch: {
-            value(newVal,oldVal) {
-                if(!oldVal) {
-                    this.setInitActive();
                 }
             }
         },
@@ -315,10 +309,14 @@
 
                     if(!that.multiple) {
                         // 单选
-                        that.$emit('valueChange',that.checkedValue)
+                        if(that.checkedValue) {
+                            that.$emit('valueChange',that.checkedValue)
+                        }
                     }else {
                         // 多选
-                        that.$emit('valueChange',that.checkedValues.join(','))
+                        if(that.checkedValues.length > 0) {
+                            that.$emit('valueChange',that.checkedValues.join(','))
+                        }
                     }
 
                     //检查是否需要是选中全部
