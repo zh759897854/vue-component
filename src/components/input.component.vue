@@ -26,6 +26,12 @@
 </template>
 
 <script>
+    /**
+     * author: ZH
+     * @description : 输入框基础组件
+     * @params : iptPlaceholder <string> 提示文字
+     *           iptReadonly <Boolean> 是否只读
+     */
     import IScroll from 'iscroll'
     export default {
         data (){
@@ -162,14 +168,14 @@
     .sy-input{
         display: inline-block;
         margin-right: 15px;
-        height: 30px;
+        height: 32px;
         vertical-align: middle;
 
         .input-wrapper{
             position: relative;
             display: inline-block;
             width: auto;
-            height: 30px;
+            height: 32px;
             border: 1px solid @link-border-color;
             border-radius: 2px;
 
@@ -193,7 +199,7 @@
                 top: 0;
                 left: 10px;
                 width: 90%;
-                height: 28px;
+                height: 30px;
                 background: @color-white;
                 border: 0;
                 color: @color-333;
@@ -250,7 +256,7 @@
             max-height: 200px;
             background: @color-white;
             border: 1px solid @link-border-color;
-            overflow-y: hidden;
+            overflow-y: auto;
 
             ul{
                 list-style: none;
