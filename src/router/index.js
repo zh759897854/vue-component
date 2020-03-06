@@ -1,30 +1,55 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '@/views/Home.vue'
-import pageA from '@/views/pageA.vue'
-import pageB from '@/views/pageB.vue'
 
-Vue.use(VueRouter)
+import Index from '@/views/index'
+import baseButton from '@/views/button'
+import baseCheckBox from '@/views/checkBox'
+import datePicker from '@/views/datePicker'
+import baseInput from '@/views/input'
+import baseSelect from '@/views/select'
+import baseTable from '@/views/table'
+
+Vue.use(VueRouter);
 
 const routes = [
     {
         path: '/',
-        name: 'home',
-        component: Home,
+        name: 'index',
+        component: Index,
         children:[
             {
                 path: '/',
-                name: 'pageA',
-                component: pageA
+                name: 'baseButton',
+                component: baseButton
             },
             {
-                path: '/pageB',
-                name: 'pageB',
-                component: pageB
-            }
+                path: '/baseCheckBox',
+                name: 'baseCheckBox',
+                component: baseCheckBox
+            },
+            {
+                path: '/datePicker',
+                name: 'datePicker',
+                component: datePicker
+            },
+            {
+                path: '/baseInput',
+                name: 'baseInput',
+                component: baseInput
+            },
+            {
+                path: '/baseSelect',
+                name: 'baseSelect',
+                component: baseSelect
+            },
+            {
+                path: '/baseTable',
+                name: 'baseTable',
+                component: baseTable
+            },
         ]
-    },
-]
+    }
+];
 
 const router = new VueRouter({
     mode: 'history',
