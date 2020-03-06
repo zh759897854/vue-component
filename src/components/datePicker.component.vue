@@ -300,7 +300,7 @@
      *          clearBtn: type: Boolean,是否显示清除按钮  默认不显示
      *          inputClearBtn: type: Boolean, 是否显示input后面的清除按钮  默认不显示
      *          initBtn: type: Boolean, 是否显示返回当前按钮  默认不显示
-     *          noAfterToday: type: Boolean, 是否设置今天之后不可选 默认可选
+     *          noAfterToday: type: Boolean, 是否设置今天之后不可选 默认可选 **必须设置maxDate为今天
      *
      *          maxDate: type: [String,Number], 最大可选择日期  20190506
      *          minDate: type: [String,Number],最小可选择日期 20190506
