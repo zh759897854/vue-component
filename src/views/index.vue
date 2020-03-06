@@ -38,7 +38,7 @@
 
 <template>
     <div class="index">
-        <h1>vue 组件</h1>
+        <h1>VUE 组件</h1>
         <div class="component-wrapper">
             <div class="cards">
                 <span :class="{'active': active===index}" v-for="(item, index) in cards" :key="index" @click="cardsActive(index)">

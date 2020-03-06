@@ -140,7 +140,7 @@
             }
             /*日期*/
             .day-contain {
-                border-top: 1px solid @input-text-color;
+                border-top: 1px solid @link-border-color;
                 padding: 10px 10px 20px 10px;
                 >span {
                     margin-top: 5px;
@@ -177,7 +177,7 @@
         }
         /*按钮*/
         .btn-panel {
-            border-top: 1px solid @input-text-color;
+            border-top: 1px solid @link-border-color;
             padding: 10px 10px;
             text-align: right;
             .btn {
