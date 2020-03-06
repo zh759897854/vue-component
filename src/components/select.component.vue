@@ -266,6 +266,12 @@
                 default: function(){
                     return ''
                 }
+            },
+            placeholder: {
+                type: String,
+                default: function(){
+                    return '请选择'
+                }
             }
         },
         watch: {
@@ -321,15 +327,16 @@
         mounted(){
             let that = this;
             // 自适应显示位置
+            that.valueText = that.placeholder;
             let remainingHeight = this.options.length *32;
+            remainingHeight > 200?remainingHeight = 200:remainingHeight;
             if(window.innerHeight - this.$el.offsetTop <= remainingHeight){
-                this.coordinates = {let: '0', top: -(remainingHeight)+ 'px'}
+                this.coordinates = {let: '0', top: -200+ 'px'}
             }
             document.addEventListener('click', that.initPanel);
             window.onresize = function() {
-                let remainingHeight = that.options.length *32;
                 if(window.innerHeight - that.$el.offsetTop <= remainingHeight){
-                    that.coordinates = {let: '0', top: -(remainingHeight)+ 'px'}
+                    that.coordinates = {let: '0', top: -200+ 'px'}
                 }else {
                     that.coordinates = {top: '31px'}
                 }
@@ -356,7 +363,7 @@
                 this.valueData = item.value;
                 this.valueText = item.text;
                 this.triangle = !this.triangle;
-                this.$emit('valueChange',this.valueData);
+                this.$emit('valueChange',item);
             },
             //多选 选中
             chooseMultiple(item,index) {
@@ -385,6 +392,9 @@
                 let that = this;
                 setTimeout(function() {
                     let selectIndex = that.selectIndex;
+                    if(selectIndex.length === 0) {
+                        return false
+                    }
                     if(!that.multiple && that.computedOptions.length > 0) {
                         // 单选设置默认选中 传入index值
                         if(selectIndex.length > 0) {
