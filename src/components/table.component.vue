@@ -268,7 +268,6 @@
             td{
                 border-right: none;
             }
-            cursor: pointer;
         }
         th{
             background: #def3fc;
@@ -372,6 +371,11 @@
             td{
                 border-bottom: 1px solid @table-border-color;
                 border-right: 1px solid @table-border-color;
+            }
+        }
+        .companyName,.detail {
+            div {
+                cursor: pointer;
             }
         }
     }
