@@ -275,7 +275,7 @@
             white-space: nowrap;
             >div{
                 padding: 18px 10px;
-                color: #333;
+                color: @color-333;
                 text-align: center;
             }
         }
@@ -283,13 +283,13 @@
             padding: 0;
             >div{
                 padding: 13px 10px;
-                color: #666;
+                color: @color-666;
                 text-align: center;
             }
         }
         .detail {
             div {
-                color: #14B8D4;
+                color: @color-primary;
             }
 
         }
@@ -376,6 +376,7 @@
         .companyName,.detail {
             div {
                 cursor: pointer;
+                color: @color-primary;
             }
         }
     }
