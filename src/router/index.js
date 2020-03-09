@@ -9,6 +9,8 @@ import baseInput from '@/views/input'
 import baseSelect from '@/views/select'
 import baseTable from '@/views/table'
 
+import Home from '@/views/Home'
+
 Vue.use(VueRouter);
 
 const routes = [
@@ -16,38 +18,44 @@ const routes = [
         path: '/',
         name: 'index',
         component: Index,
+        redirect: 'baseButton',
         children:[
             {
-                path: '/',
+                path: 'baseButton',
                 name: 'baseButton',
                 component: baseButton
             },
             {
-                path: '/baseCheckBox',
+                path: 'baseCheckBox',
                 name: 'baseCheckBox',
                 component: baseCheckBox
             },
             {
-                path: '/datePicker',
+                path: 'datePicker',
                 name: 'datePicker',
                 component: datePicker
             },
             {
-                path: '/baseInput',
+                path: 'baseInput',
                 name: 'baseInput',
                 component: baseInput
             },
             {
-                path: '/baseSelect',
+                path: 'baseSelect',
                 name: 'baseSelect',
                 component: baseSelect
             },
             {
-                path: '/baseTable',
+                path: 'baseTable',
                 name: 'baseTable',
                 component: baseTable
             },
         ]
+    },
+    {
+        path: '/home',
+        name: 'home',
+        component: Home
     }
 ];
 
