@@ -29,7 +29,7 @@
             .active {
                 background: @color-primary;
                 a {
-                    color: #fff !important;
+                    color: @color-white !important;
                 }
             }
         }
