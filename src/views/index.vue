@@ -29,7 +29,7 @@
             .active {
                 background: @color-primary;
                 a {
-                    color: #fff !important;
+                    color: @color-white !important;
                 }
             }
         }
@@ -38,7 +38,8 @@
 
 <template>
     <div class="index">
-        <h1>VUE 组件</h1>
+        <h1>vue 组件</h1>
+        <router-link :to="{name: 'home'}">HOME</router-link>
         <div class="component-wrapper">
             <div class="cards">
                 <span :class="{'active': active===index}" v-for="(item, index) in cards" :key="index" @click="cardsActive(index)">
@@ -57,26 +58,49 @@
                 cards: [
                     {
                         name: '按钮',
-                        path: '/'
+                        path: 'baseButton'
                     },
                     {
                         name: '复选框',
-                        path: '/baseCheckBox'
+                        path: 'baseCheckBox'
                     },{
                         name: '时间筛选',
-                        path: '/datePicker'
+                        path: 'datePicker'
                     },{
                         name: 'input输入框',
-                        path: '/baseInput'
+                        path: 'baseInput'
                     },{
                         name: '下拉筛选',
-                        path: '/baseSelect'
+                        path: 'baseSelect'
                     },{
                         name: 'table表格',
-                        path: '/baseTable'
+                        path: 'baseTable'
                     }
                 ],
                 active: 0
+            }
+        },
+        mounted() {
+            let path = this.$route.name;
+            switch (path) {
+                case 'baseButton':
+                    this.active = 0;
+                    break;
+                case 'baseCheckBox':
+                    this.active = 1;
+                    break;
+                case 'datePicker':
+                    this.active = 2;
+                    break;
+                case 'baseInput':
+                    this.active = 3;
+                    break;
+                case 'baseSelect':
+                    this.active = 4;
+                    break;
+                case 'baseTable':
+                    this.active = 5;
+                    break;
             }
         },
         methods: {

@@ -67,7 +67,7 @@
                     :style="styleObject"
                     @click="confirm"
                     @mousedown="ChangeIcon"
-                    @mouseup="resetIcon" v-else>{{btnText}}
+                    @mouseup="resetIcon" v-else> <slot></slot> {{btnText}}
             </button>
         </div>
     </div>
