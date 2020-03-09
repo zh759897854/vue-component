@@ -39,7 +39,6 @@
 <template>
     <div class="index">
         <h1>vue 组件</h1>
-        <router-link :to="{name: 'home'}">HOME</router-link>
         <div class="component-wrapper">
             <div class="cards">
                 <span :class="{'active': active===index}" v-for="(item, index) in cards" :key="index" @click="cardsActive(index)">

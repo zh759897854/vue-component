@@ -28,8 +28,8 @@
             background: @color-white;
         }
         .date-input {
-            width: 98px;
-            height: 30px;
+            width: 120px;
+            height: 32px;
             line-height: 32px;
             padding: 0 10px;
             color: @color-333;
@@ -39,6 +39,9 @@
             -moz-border-radius: 4px;
             border-radius: 4px;
             cursor: pointer;
+        }
+        .focus {
+            border-color: @color-primary;
         }
         /*时间弹窗样式*/
         .date-panel {
@@ -196,7 +199,7 @@
 
 <template>
   <div id="date-picker">
-      <input class="date-input" type="text" v-model="dateValue" autocomplete="false" @change="handSetDate" :placeholder="placeholder" @click.stop="panelState = !panelState" title="">
+      <input class="date-input" :class="{'focus': panelState}" type="text" v-model="dateValue" autocomplete="false" @change="handSetDate" :placeholder="placeholder" @click.stop="panelState = !panelState" title="">
       <button class="clear-button" @click.stop="clearDate" v-if="dateValue !== '' && inputClearBtn">x</button>
 
       <div class="date-panel" v-show="panelState" :style="coordinates" @click.stop="preventClickEvent">

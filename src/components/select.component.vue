@@ -89,7 +89,7 @@
         .option-wrapper{
             box-sizing: border-box;
             position: absolute;
-            top: 31px;
+            top: 33px;
             z-index: 1000;
             min-width: 80px;
             width: 100%;
@@ -126,7 +126,7 @@
         .multiple-wapper {
             box-sizing: border-box;
             position: absolute;
-            top: 31px;
+            top: 33px;
             z-index: 1000;
             min-width: 80px;
             width: 100%;

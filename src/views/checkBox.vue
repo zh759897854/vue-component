@@ -7,7 +7,7 @@
         <div>单选 ：{{valueData}}</div>
         <base-checkBox :checkBoxData="checkBoxData" :selectIndex="selectIndex" v-model="valueData" @valueChange="valueChange"></base-checkBox>
         <div>复选 ：{{valueData1}}</div>
-        <base-checkBox :checkBoxData="checkBoxData1" :selectIndex="selectIndex1" labelType="flash" :multiple="true" v-model="valueData1" @valueChange="valueChange1"></base-checkBox>
+        <base-checkBox :checkBoxData="checkBoxData1" :selectIndex="selectIndex1" labelType="mask" :multiple="true" v-model="valueData1" @valueChange="valueChange1"></base-checkBox>
     </div>
 </template>
 

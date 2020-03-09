@@ -66,7 +66,7 @@
                     background: @color-primary;
                     background-image: url("./image/select-icon.png");
                     background-repeat: @background-repeat;
-                    background-position: 1px 2px;
+                    background-position: 0 1px;
                 }
             }
         }
@@ -85,8 +85,8 @@
                 <span class="checkbox-icon">
                     <span></span>
                 </span>
-                <label class="checkbox-label" :for="'label' + + labelType + index">{{item.label}}</label>
-                <input type="checkbox" :id="'label' + + labelType + index" :value="item.value" v-model="checkedValues" @click="change(index)" title=""/>
+                <label class="checkbox-label" :for="'label' + labelType + index">{{item.label}}</label>
+                <input type="checkbox" :id="'label' + labelType + index" :value="item.value" v-model="checkedValues" @click="change(index)" title=""/>
             </span>
             <!--全选按钮-->
             <span class="checkBox-wapper select-all-btn" :class="{'checked':selectAllTab}" v-if="selectAllBtn">
