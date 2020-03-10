@@ -2,6 +2,7 @@
    .common-button {
        width: auto;
        display: inline-block;
+       vertical-align: top;
        .btn-waper {
            /*不带icon的按钮*/
            .common-btn {
@@ -22,6 +23,7 @@
                background-size: 20px 20px;
                background-repeat: @background-repeat;
                background-position: 5px 5px;
+               margin-left: 5px;
            }
            .common-btn:active {
                color: @btn-active-bg;

@@ -169,7 +169,7 @@
         display: inline-block;
         margin-right: 15px;
         height: 32px;
-        vertical-align: middle;
+        vertical-align: top;
 
         .input-wrapper{
             position: relative;

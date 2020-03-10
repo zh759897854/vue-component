@@ -40,7 +40,7 @@
     <div class="index">
         <h1>vue 组件</h1>
         <h2>
-            <router-link :to="{name: 'home'}">--> Home</router-link>
+            <router-link :to="{name: 'home'}">Home --></router-link>
         </h2>
         <div class="component-wrapper">
             <div class="cards">

@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-axios.defaults.timeout = 10000;
+axios.defaults.timeout = 10000000;
 axios.defaults.headers.app_id = 'catyikskognqglfl';
 axios.defaults.headers.app_secret = 'dnNhcmJoeGlDN1FuaElQazlTelYwQT09';
 
@@ -33,7 +33,7 @@ const post = function(data) {
     let url = data.url,
         params = data.params;
     return new Promise((resolve,reject) => {
-        axios.get(url, {params: params}
+        axios.post(url, {params: params}
         ).then(res => {
             resolve(res.data);
         }).catch(error => {

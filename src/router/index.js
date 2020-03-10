@@ -10,6 +10,7 @@ import baseSelect from '@/views/select'
 import baseTable from '@/views/table'
 
 import Home from '@/views/Home'
+import Music from '@/views/music'
 
 Vue.use(VueRouter);
 
@@ -56,6 +57,11 @@ const routes = [
         path: '/home',
         name: 'home',
         component: Home
+    },
+    {
+        path: '/music',
+        name: 'music',
+        component: Music,
     }
 ];
 
