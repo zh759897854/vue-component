@@ -11,7 +11,7 @@
                font-size: @font-size-base;
                background: @color-white;
                color: @color-primary;
-               padding: 0;
+               padding: 0 5px;
                margin: 0;
                text-align: center;
                border: 1px solid @color-primary;

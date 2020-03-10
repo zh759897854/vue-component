@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
+import axios from './core/common.config'
 
 import baseButton from '@/components/button.component'
 import baseCheckBox from '@/components/checkBox.component'
@@ -18,7 +19,7 @@ Vue.component('base-select',baseSelect);
 Vue.component('base-table',baseTable);
 
 Vue.config.productionTip = false;
-
+Vue.prototype.$Axios = axios;
 new Vue({
   router,
   store,
