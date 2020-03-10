@@ -1,5 +1,8 @@
 <template>
     <div id="music">
+        <h2>
+            <router-link :to="{name: 'home'}">Home --></router-link>
+        </h2>
         <base-input :iptPlaceholder="'请输入内容'"
                     :iptValue="iptValue"
                     :iptReadonly="iptReadonly"
@@ -23,7 +26,6 @@
 <style lang="less">
     #music {
         padding: 20px;
-        text-align: center;
         .title {
             width: 100%;
             border-top: 2px solid @color-primary;
