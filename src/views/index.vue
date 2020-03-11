@@ -3,7 +3,7 @@
         display: inline-block;
         width: 100%;
         height: 100%;
-        color: #333 !important;
+        color: #333;
         text-decoration: none !important;
     }
     a:link:hover {

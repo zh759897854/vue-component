@@ -379,5 +379,11 @@
                 color: @color-primary;
             }
         }
+        .companyName div {
+            text-align: left;
+            img {
+                margin-right: 3px;
+            }
+        }
     }
 </style>

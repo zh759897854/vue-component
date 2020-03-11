@@ -4,4 +4,6 @@
     </div>
 </template>
 
-<style lang="less"></style>
+<style lang="less">
+    @import url(./theme/base.less);
+</style>

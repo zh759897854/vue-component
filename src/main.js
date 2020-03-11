@@ -20,6 +20,7 @@ Vue.component('base-table',baseTable);
 
 Vue.config.productionTip = false;
 Vue.prototype.$Axios = axios;
+
 new Vue({
   router,
   store,
