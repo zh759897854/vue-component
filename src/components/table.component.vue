@@ -1,4 +1,139 @@
 <!--table组件-->
+<style lang="less">
+    .sy-table{
+        overflow: hidden;
+        table{
+            width: 100%;
+            font-size: 14px;
+            border-collapse: collapse;
+        }
+        tr.hover{
+            background: #f9fefe;
+            border-right: 1px solid @table-border-color;
+            box-shadow: 0 3px 12px @table-hover-bg;
+            td{
+                border-right: none;
+            }
+        }
+        th{
+            background: #def3fc;
+            font-weight: 400;
+            white-space: nowrap;
+            >div{
+                padding: 18px 10px;
+                color: @color-333;
+                text-align: center;
+            }
+        }
+        td{
+            padding: 0;
+            >div{
+                padding: 13px 10px;
+                color: @color-666;
+                text-align: center;
+            }
+        }
+        .detail {
+            div {
+                color: @color-primary;
+            }
+
+        }
+        .sort-cell{
+            vertical-align: middle;
+            span{
+                display: inline-block;
+            }
+            .icon{
+                display: inline-block;
+                width: 20px;
+                height: 20px;
+                background-image: url("./image/icon-sort.png");
+                background-repeat: no-repeat;
+                background-position: 0 0;
+            }
+            .icon-asc{
+                background-position: -20px 0;
+            }
+            .icon-desc{
+                background-position: -40px 0;
+            }
+        }
+
+        .scroll-table{
+            .table-left{
+                width: 1%;
+                border-collapse: collapse;
+                >.table-left-wrapper{
+                    min-width: 200px;
+                    padding: 0 0;
+                    >table{
+                        width: 100%;
+                    }
+                }
+                tbody{
+                    border-left: 1px solid @table-border-color;
+                    border-right: 1px solid @table-border-color;
+                }
+                td{
+                    border-bottom: 1px solid @table-border-color;
+                }
+            }
+            .table-right{
+                border-collapse: collapse;
+                >.table-rigth-wrapepr{
+                    padding: 0 0;
+                    overflow: hidden;
+                    >table{
+                        width: 100%;
+                    }
+                }
+                tbody{
+                    border-right: 2px solid @table-border-color;
+                }
+                td{
+                    border-right: 1px solid @table-border-color;
+                    border-bottom: 1px solid @table-border-color;
+                }
+            }
+            tr.hover{
+                background: #f9fefe;
+                border-right: 1px solid @table-border-color;
+                box-shadow: 0 3px 12px @table-hover-bg;
+                td{
+                    border-right: none;
+                }
+                cursor: pointer;
+            }
+        }
+
+        .unscroll-table{
+            th{
+                border-right: 1px solid #def3fc;
+            }
+            tbody{
+                border-left: 1px solid @table-border-color;
+            }
+            td{
+                border-bottom: 1px solid @table-border-color;
+                border-right: 1px solid @table-border-color;
+            }
+        }
+        .companyName,.detail {
+            div {
+                cursor: pointer;
+                color: @color-primary;
+            }
+        }
+        .companyName div {
+            text-align: left;
+            img {
+                margin-right: 3px;
+            }
+        }
+    }
+</style>
+
 <template>
     <div class="sy-table" ref="tableWrapper">
         <table v-if="scrollX && titleTempData.length > 0" :class="{'scroll-table' : scrollX}">
@@ -252,138 +387,3 @@
         }
     }
 </script>
-
-<style lang="less">
-    .sy-table{
-        overflow: hidden;
-        table{
-            width: 100%;
-            font-size: 14px;
-            border-collapse: collapse;
-        }
-        tr.hover{
-            background: #f9fefe;
-            border-right: 1px solid @table-border-color;
-            box-shadow: 0 3px 12px @table-hover-bg;
-            td{
-                border-right: none;
-            }
-        }
-        th{
-            background: #def3fc;
-            font-weight: 400;
-            white-space: nowrap;
-            >div{
-                padding: 18px 10px;
-                color: @color-333;
-                text-align: center;
-            }
-        }
-        td{
-            padding: 0;
-            >div{
-                padding: 13px 10px;
-                color: @color-666;
-                text-align: center;
-            }
-        }
-        .detail {
-            div {
-                color: @color-primary;
-            }
-
-        }
-        .sort-cell{
-            vertical-align: middle;
-            span{
-                display: inline-block;
-            }
-            .icon{
-                display: inline-block;
-                width: 20px;
-                height: 20px;
-                background-image: url("./image/icon-sort.png");
-                background-repeat: no-repeat;
-                background-position: 0 0;
-            }
-            .icon-asc{
-                background-position: -20px 0;
-            }
-            .icon-desc{
-                background-position: -40px 0;
-            }
-        }
-
-        .scroll-table{
-            .table-left{
-                width: 1%;
-                border-collapse: collapse;
-                >.table-left-wrapper{
-                    min-width: 200px;
-                    padding: 0 0;
-                    >table{
-                        width: 100%;
-                    }
-                }
-                tbody{
-                    border-left: 1px solid @table-border-color;
-                    border-right: 1px solid @table-border-color;
-                }
-                td{
-                    border-bottom: 1px solid @table-border-color;
-                }
-            }
-            .table-right{
-                border-collapse: collapse;
-                >.table-rigth-wrapepr{
-                    padding: 0 0;
-                    overflow: hidden;
-                    >table{
-                        width: 100%;
-                    }
-                }
-                tbody{
-                    border-right: 2px solid @table-border-color;
-                }
-                td{
-                    border-right: 1px solid @table-border-color;
-                    border-bottom: 1px solid @table-border-color;
-                }
-            }
-            tr.hover{
-                background: #f9fefe;
-                border-right: 1px solid @table-border-color;
-                box-shadow: 0 3px 12px @table-hover-bg;
-                td{
-                    border-right: none;
-                }
-                cursor: pointer;
-            }
-        }
-
-        .unscroll-table{
-            th{
-                border-right: 1px solid #def3fc;
-            }
-            tbody{
-                border-left: 1px solid @table-border-color;
-            }
-            td{
-                border-bottom: 1px solid @table-border-color;
-                border-right: 1px solid @table-border-color;
-            }
-        }
-        .companyName,.detail {
-            div {
-                cursor: pointer;
-                color: @color-primary;
-            }
-        }
-        .companyName div {
-            text-align: left;
-            img {
-                margin-right: 3px;
-            }
-        }
-    }
-</style>
