@@ -20,12 +20,18 @@
                     border-radius: 4px;
                     cursor: pointer;
                 }
+                a:hover {
+                    color: @color-primary;
+                }
                 .disabled {
                     border-color: @btn-border-color;
                     background: @btn-disable-bg;
-                    color: #999;
+                    color: @color-999;
                     cursor: not-allowed;
                     background: #eee;
+                }
+                .disabled:hover {
+                    color: @color-999;
                 }
             }
         }
