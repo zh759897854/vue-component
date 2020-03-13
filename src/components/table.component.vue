@@ -13,6 +13,9 @@
             box-shadow: 0 3px 12px @table-hover-bg;
             td{
                 border-right: none;
+                div {
+                    color: @color-333;
+                }
             }
         }
         th{
@@ -22,6 +25,7 @@
             >div{
                 padding: 18px 10px;
                 color: @color-333;
+                font-weight: @text-weight-600;
                 text-align: center;
             }
         }
@@ -32,12 +36,6 @@
                 color: @color-666;
                 text-align: center;
             }
-        }
-        .detail {
-            div {
-                color: @color-primary;
-            }
-
         }
         .sort-cell{
             vertical-align: middle;
@@ -119,16 +117,25 @@
                 border-right: 1px solid @table-border-color;
             }
         }
-        .companyName,.detail {
+
+        table tr .detail div {
+            color: @color-primary;
+            cursor: pointer;
+        }
+        .companyName {
             div {
+                img {
+                    margin-right: 3px;
+                }
+            }
+            div:hover {
                 cursor: pointer;
                 color: @color-primary;
             }
         }
-        .companyName div {
-            text-align: left;
-            img {
-                margin-right: 3px;
+        .align-left{
+            div {
+                text-align: left;
             }
         }
     }
@@ -136,7 +143,7 @@
 
 <template>
     <div class="sy-table" ref="tableWrapper">
-        <table v-if="scrollX && titleTempData.length > 0" :class="{'scroll-table' : scrollX}">
+        <table v-if="scrollX && bodyData.length > 0" :class="{'scroll-table' : scrollX}">
             <tbody>
                 <tr>
                     <td class="table-left">
@@ -147,14 +154,14 @@
                                         <th :class="th.className" v-for="(th,index) in titleData" :key="index" v-show="index === 0">
                                             <template v-if="th.sortValue">
                                                 <div class="sort-cell" @click="thSortEvent(th)">
-                                                    <span v-html="th[titleTempData[index]]"></span>
+                                                    <span v-html="th[titleTempData[index]] || '--'"></span>
                                                     <i v-if="th.sortType === ''" class="icon icon-sort"></i>
                                                     <i v-if="th.sortType === 'asc'" class="icon icon-sort icon-asc"></i>
                                                     <i v-if="th.sortType === 'desc'" class="icon icon-sort icon-desc"></i>
                                                 </div>
                                             </template>
                                             <template v-else>
-                                                <div v-html="th[titleTempData[index]]"></div>
+                                                <div v-html="th[titleTempData[index]] || '--'"></div>
                                             </template>
                                         </th>
                                     </tr>
@@ -162,7 +169,7 @@
                                 <tbody>
                                     <tr :class="{'hover': index===hoverIndex}" v-for="(tr,index) in bodyData" :key="index" @mouseover="mouseEvent('mouseover',index)" @mouseout="mouseEvent('mouseout')">
                                         <td v-for="(titleValue,tdIndex) in titleTempData" :key="tdIndex" :class="getTrClassName(tdIndex)" v-show="tdIndex === 0">
-                                            <div v-html="tr[titleValue]" @click="tdClickEvent(tdIndex,tr)"></div>
+                                            <div v-html="tr[titleValue] || '--'" @click="tdClickEvent(tdIndex,tr)"></div>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -202,20 +209,20 @@
                 </tr>
             </tbody>
         </table>
-        <table v-if="!scrollX && titleTempData.length > 0" :class="{'unscroll-table': !scrollX}">
+        <table v-if="!scrollX && bodyData.length > 0" :class="{'unscroll-table': !scrollX}">
             <thead>
                 <tr>
                     <th v-for="(th,index) in titleData" :key="index">
                         <template v-if="th.sortValue">
                             <div class="sort-cell" @click="thSortEvent(th)">
-                                <span v-html="th[titleTempData[index]]"></span>
+                                <span v-html="th[titleTempData[index]] || '--'"></span>
                                 <i v-if="th.sortType === ''" class="icon icon-sort"></i>
                                 <i v-if="th.sortType === 'asc'" class="icon icon-sort icon-asc"></i>
                                 <i v-if="th.sortType === 'desc'" class="icon icon-sort icon-desc"></i>
                             </div>
                         </template>
                         <template v-else>
-                            <div v-html="th[titleTempData[index]]"></div>
+                            <div v-html="th[titleTempData[index]] || '--'"></div>
                         </template>
                     </th>
                 </tr>
@@ -223,7 +230,7 @@
             <tbody>
                 <tr :class="{'hover': index===hoverIndex}" v-for="(tr,index) in bodyData" :key="index" @mouseover="mouseEvent('mouseover',index)" @mouseout="mouseEvent('mouseout')">
                     <td v-for="(titleValue,tdIndex) in titleTempData" :key="tdIndex" :class="getTrClassName(tdIndex)">
-                        <div v-html="tr[titleValue]" @click="tdClickEvent(tdIndex,tr)"></div>
+                        <div v-html="tr[titleValue] || '--'" @click="tdClickEvent(tdIndex,tr)"></div>
                     </td>
                 </tr>
             </tbody>

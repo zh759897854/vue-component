@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-axios.defaults.timeout = 10000000;
+axios.defaults.timeout = 5000;
 axios.defaults.headers.app_id = 'catyikskognqglfl';
 axios.defaults.headers.app_secret = 'dnNhcmJoeGlDN1FuaElQazlTelYwQT09';
 
