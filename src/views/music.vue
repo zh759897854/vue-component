@@ -79,12 +79,7 @@
         },
         methods: {
             getDatas() {
-                if(this.initQuery === null) {
-                    this.getMusic(true);
-                    this.initQuery = 'start'
-                }else {
-                    this.getMusic()
-                }
+                this.getMusic(true);
             },
             tdClick(value) {
                 let that = this;
@@ -114,12 +109,15 @@
                 let curCookie = this.musicCookie;
                 let pageSize = curCookie.pageSize;
                 if(curCookie.requestMark) {
-                    console.error('数据正在请求')
+                    console.error('数据正在请求');
                     return false
                 }
                 if(init) {
                     curCookie.pageNumber = 1;
                     curCookie.pageCount = 1;
+                    curCookie.firstDisable= true;
+                    curCookie.perDisable= true;
+                    curCookie.nextDisable= true;
                 }
                 curCookie.requestMark = true;
                 new this.DataServe({
@@ -164,9 +162,7 @@
                             curCookie.perDisable = false;
                         }
                     },
-                    error: function(error) {
-                        console.log(error,'---')
-                    },
+                    error: function(error) {},
                     always: function() {
                         curCookie.requestMark = false;
                     }
