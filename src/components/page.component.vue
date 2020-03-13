@@ -100,7 +100,7 @@
         },
         methods: {
             firstPage() {
-                if(!this.cookie.firstDisable) {
+                if(!this.cookie.firstDisable && !this.cookie.requestMark) {
                     // 点击首页 首页、上一页置灰  下一页可点击
                     this.pageNumber = 1;
                     this.firstDisable = true;
@@ -110,7 +110,7 @@
                 }
             },
             perPage() {
-                if(!this.cookie.perDisable) {
+                if(!this.cookie.perDisable && !this.cookie.requestMark) {
                     this.pageNumber--;
                     if(this.pageNumber === 1) {
                         // 点击上一页 页码为1  首页、上一页置灰  下一页可点击
@@ -127,7 +127,7 @@
                 }
             },
             nextPage() {
-                if(!this.cookie.nextDisable) {
+                if(!this.cookie.nextDisable && !this.cookie.requestMark) {
                     // 点击下一页 首页、上一页都可点击
                     this.firstDisable = false;
                     this.perDisable = false;

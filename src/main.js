@@ -2,7 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import axios from './core/common.config'
+import dataServe from './core/common.config'
 
 import baseButton from '@/components/button.component'
 import baseCheckBox from '@/components/checkBox.component'
@@ -21,7 +21,7 @@ Vue.component('base-table',baseTable);
 Vue.component('base-page',basePage);
 
 Vue.config.productionTip = false;
-Vue.prototype.$Axios = axios;
+Vue.prototype.DataServe = dataServe;
 
 new Vue({
   router,

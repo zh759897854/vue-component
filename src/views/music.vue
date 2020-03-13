@@ -41,6 +41,7 @@
 </template>
 
 <script>
+
     export default {
         name: 'music',
         data() {
@@ -58,6 +59,7 @@
                     firstDisable: true,
                     perDisable: true,
                     nextDisable: true,
+                    requestMark: false,
                     trClass: [
                         {
                             index: 2,
@@ -78,7 +80,7 @@
         methods: {
             getDatas() {
                 if(this.initQuery === null) {
-                    this.getMusic(true)
+                    this.getMusic(true);
                     this.initQuery = 'start'
                 }else {
                     this.getMusic()
@@ -111,48 +113,64 @@
                 let that = this;
                 let curCookie = this.musicCookie;
                 let pageSize = curCookie.pageSize;
-                this.$Axios.get({
+                if(curCookie.requestMark) {
+                    console.error('数据正在请求')
+                    return false
+                }
+                if(init) {
+                    curCookie.pageNumber = 1;
+                    curCookie.pageCount = 1;
+                }
+                curCookie.requestMark = true;
+                new this.DataServe({
+                    method: 'get',
                     url: '/api/music/song/search',
-                    params: {
+                    data: {
                         keyWord: that.iptValue,
                         page: curCookie.pageNumber
-                    }
-                }).then((res)=>{
-                    let data = [];
-                    data = res.data || {};
-                    data = data.list || [];
+                    },
+                    success: function(res) {
+                        let data = [];
+                        data = res.data || {};
+                        data = data.list || [];
 
-                    let len = data.length;
-                    // 更新翻页组件状态
-                    if(init) {
-                        if(len > 0) {
-                            curCookie.tableData = [].concat(data);
-                            len === pageSize?curCookie.nextDisable = false:curCookie.nextDisable = true;
-                            console.log(curCookie)
+                        let len = data.length;
+                        // 更新翻页组件状态
+                        if(init) {
+                            curCookie.tableData = [];
+                            curCookie.bodyData = [];
+                            if(len > 0) {
+                                curCookie.tableData = [].concat(data);
+                                len === pageSize?curCookie.nextDisable = false:curCookie.nextDisable = true;
+                            }else {
+                                alert('暂无数据')
+                            }
+                        }else if(len > 0) {
+                            curCookie.tableData = curCookie.tableData.concat(data);
+                            curCookie.pageCount++;
                         }else {
-                            alert('暂无数据')
+                            curCookie.pageNumber--;
                         }
-                    }else if(len > 0) {
-                        curCookie.tableData = curCookie.tableData.concat(data);
-                        curCookie.pageCount++;
-                    }else {
-                        curCookie.pageNumber--;
-                    }
 
-                    if(len > 0) {
-                        curCookie.bodyData = data;
-                    }
+                        if(len > 0) {
+                            curCookie.bodyData = data;
+                        }
 
-                    if(len < pageSize) {
-                        curCookie.nextDisable = true;
+                        if(len < pageSize) {
+                            curCookie.nextDisable = true;
+                        }
+                        if(curCookie.pageNumber > 1) {
+                            curCookie.firstDisable = false;
+                            curCookie.perDisable = false;
+                        }
+                    },
+                    error: function(error) {
+                        console.log(error,'---')
+                    },
+                    always: function() {
+                        curCookie.requestMark = false;
                     }
-                    if(curCookie.pageNumber > 1) {
-                        curCookie.firstDisable = false;
-                        curCookie.perDisable = false;
-                    }
-                }).catch((err)=>{
-                    console.log(err)
-                })
+                });
             },
             pageChange(data) {
                 let curCookies = this[data.refer];
