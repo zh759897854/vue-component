@@ -1,5 +1,6 @@
 <style lang="less">
     #page {
+        height: 50px;
         .page-wrapper {
             width: 210px;
             height: 30px;

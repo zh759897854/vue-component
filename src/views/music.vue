@@ -85,22 +85,24 @@
                 let that = this;
                 let data = '';
                 if(value.index == 2) {
-                    this.$Axios.get({
+                    new this.DataServe({
+                        method: 'get',
                         url: '/api/music/song/detail',
-                        params: {
+                        data: {
                             songId: value.value.id
-                        }
-                    }).then((res)=>{
-                        data = res.data || {};
-                        const downloadFileA = document.createElement('a');
-                        document.body.append(downloadFileA);
-                        downloadFileA.href= data.songLink;
-                        downloadFileA.download = data.songName + '.'+ data.format;
-                        downloadFileA.rel = 'noopener noreferrer';
-                        downloadFileA.click();
-                        document.body.removeChild(downloadFileA)
-                    }).catch((err)=>{
-                        console.log(err)
+                        },
+                        success: function(res) {
+                            data = res.data || {};
+                            const downloadFileA = document.createElement('a');
+                            document.body.append(downloadFileA);
+                            downloadFileA.href= data.songLink;
+                            downloadFileA.download = data.songName + '.'+ data.format;
+                            downloadFileA.rel = 'noopener noreferrer';
+                            downloadFileA.click();
+                            document.body.removeChild(downloadFileA)
+                        },
+                        error: function(error) {},
+                        always: function() {}
                     });
                 }
             },
@@ -177,7 +179,7 @@
                 if(curCookies.pageNumber > curCookies.pageCount) {
                     this.getMusic();
                 }else {
-                    // 当页码数*页码大于总数据长度下一页置灰
+                    // 当前不是新请求时 当页码数*页码大于总数据长度下一页置灰
                     if(curCookies.pageNumber*curCookies.pageSize > curCookies.tableData.length) {
                         curCookies.nextDisable = true;
                     }
