@@ -55,13 +55,22 @@
                background-color: @color-white !important;
            }
        }
+       img {
+           height: 15px;
+           -webkit-animation: spin 1.5s linear infinite;
+           animation: spin 1.5s linear infinite;
+           vertical-align: middle;
+       }
    }
 </style>
 <template>
     <div class="common-button">
         <div class="btn-waper">
             <!--普通按钮-->
-            <button class="common-btn" :class="{'bgc-btn': btnBg}" :style="styleObject" @click="confirm" v-if="!btnIcon">{{btnText}}</button>
+            <button class="common-btn" :class="{'bgc-btn': btnBg}" :style="styleObject" @click="confirm" v-if="!btnIcon">
+                <span v-show="loading">{{btnText}}</span>
+                <img v-show="!loading" src="./image/icon-loading-white.png">
+            </button>
 
             <!--有icon的按钮-->
             <button class="common-btn btn-icon"
@@ -114,6 +123,12 @@
                     return false
                 }
             },
+            loading: {
+                type: Boolean,
+                default: function() {
+                    return true
+                }
+            }
         },
         computed: {
             styleObject() {

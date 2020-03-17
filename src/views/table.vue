@@ -96,6 +96,7 @@
                     result[i].company = "<img src='"+ imgSrc +"'>" + result[i].fullName;
                 }
 
+                console.log(require)
                 let len = 3;
                 if(curCookie.pageNumber === 2) {
                     result = [

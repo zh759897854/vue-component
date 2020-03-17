@@ -24,7 +24,7 @@
                     :relateData="relateData"
                     @iptEvent="input">
         </base-input>
-        <base-button btnText="获取音乐" :btnBg="true" @confirm="getDatas"></base-button>
+        <base-button btnText="获取音乐" :btnBg="true" @confirm="getDatas" :loading="musicCookie.loading"></base-button>
         <div class="title"></div>
         <base-table :scrollX="false"
                     :titleData="musicCookie.titleData"
@@ -32,10 +32,9 @@
                     :trClass="musicCookie.trClass"
                     @tdClick="tdClick">
         </base-table>
-        <base-page
-            refer="musicCookie"
-            :cookie="musicCookie"
-            @pageChange="pageChange">
+        <base-page  refer="musicCookie"
+                    :cookie="musicCookie"
+                    @pageChange="pageChange">
         </base-page>
     </div>
 </template>
@@ -73,7 +72,8 @@
                         {id: '音乐id'},
                     ],
                     bodyData : [],
-                    tableData: []
+                    tableData: [],
+                    loading: true
                 }
             }
         },
@@ -122,6 +122,7 @@
                     curCookie.nextDisable= true;
                 }
                 curCookie.requestMark = true;
+                curCookie.loading = false;
                 new this.DataServe({
                     method: 'get',
                     url: '/api/music/song/search',
@@ -167,6 +168,7 @@
                     error: function(error) {},
                     always: function() {
                         curCookie.requestMark = false;
+                        curCookie.loading = true;
                     }
                 });
             },
