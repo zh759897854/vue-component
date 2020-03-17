@@ -7,6 +7,12 @@
             font-size: 14px;
             border-collapse: collapse;
         }
+        tbody{
+            background-color: #fff;
+            tr {
+                background-color: transparent;
+            }
+        }
         tr.hover{
             background: #f9fefe;
             border-right: 1px solid @table-border-color;
@@ -22,19 +28,23 @@
             background: #def3fc;
             font-weight: 400;
             white-space: nowrap;
+            height: 50px;
+            vertical-align: middle;
             >div{
-                padding: 18px 10px;
                 color: @color-333;
                 font-weight: @text-weight-600;
                 text-align: center;
+                line-height: 14px;
             }
         }
         td{
             padding: 0;
+            height: 40px;
+            vertical-align: middle;
             >div{
-                padding: 13px 10px;
                 color: @color-666;
                 text-align: center;
+                line-height: 14px;
             }
         }
         .sort-cell{
