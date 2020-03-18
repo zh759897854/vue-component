@@ -18,7 +18,7 @@
             border-right: 1px solid @table-border-color;
             box-shadow: 0 3px 12px @table-hover-bg;
             td{
-                border-right-color: #f9fefe;
+                border-right-color: #f9fefe !important;
                 div {
                     color: @color-333;
                 }
