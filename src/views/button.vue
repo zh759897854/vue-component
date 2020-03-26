@@ -24,6 +24,9 @@
         methods: {
             confirm() {
                 console.log('按钮点击');
+            },
+            cancel() {
+                console.log('取消任务')
             }
         }
     }
