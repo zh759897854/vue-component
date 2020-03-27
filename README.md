@@ -40,3 +40,5 @@ module.exports = {
     // pathRewrite: {'^/old/api' : '/new/api'} // 重写路径 pathRewrite + 请求地址
     // pathRewrite: {'^/remove/api' : ''} // 删除路径 target + '' + 请求地址
     // pathRewrite: {'^/' : '/basepath/'} // 添加基础路径 target + pathRewrite + 请求地址 ```
+
+### webSreom加载vue项目头疼啊 不加载node_modules的话没智能提示  加载的话内存小被卡死  怎么办？
