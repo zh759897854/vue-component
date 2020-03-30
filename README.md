@@ -42,3 +42,4 @@ module.exports = {
     // pathRewrite: {'^/' : '/basepath/'} // 添加基础路径 target + pathRewrite + 请求地址 ```
 
 ### webSreom加载vue项目头疼啊 不加载node_modules的话没智能提示  加载的话内存小被卡死  怎么办？
+### svn propset svn:ignore node_modules . 添加svn忽略文件
