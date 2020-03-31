@@ -3,7 +3,7 @@
         position: relative;
         display: inline-block;
         height: 32px;
-        margin-right: 15px;
+        margin: 0 10px;
         overflow-y: visible;
         font-size: 14px;
         color: @color-666;
@@ -167,6 +167,8 @@
                     cursor: pointer;
                     text-align: center;
                     margin-top: 5px;
+                    width: 44px;
+                    box-sizing: content-box;
                 }
                 >span:hover {
                     background: @color-primary;
