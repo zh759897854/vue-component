@@ -42,6 +42,6 @@ module.exports = {
     // pathRewrite: {'^/' : '/basepath/'} // 添加基础路径 target + pathRewrite + 请求地址 ```
 
 ### webSreom加载vue项目头疼啊 不加载node_modules的话没智能提示  加载的话内存小被卡死  怎么办？
-### svn propset svn:ignore node_modules . 添加svn忽略文件
+### svn propset svn:ignore node_modules . 添加svn忽略文件 或者在svn设置里面添加node_modules选项用于过滤node_modules
 ### $refd.$el.children 可以获取dom并操作
 ### $refd.$el.children.offsetHeight 获取vue中dom元素的高度  类似属性也可以获得 
