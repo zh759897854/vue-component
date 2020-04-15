@@ -45,3 +45,4 @@ module.exports = {
 ### svn propset svn:ignore node_modules . 添加svn忽略文件 或者在svn设置里面添加node_modules选项用于过滤node_modules
 ### $refd.$el.children 可以获取dom并操作
 ### $refd.$el.children.offsetHeight 获取vue中dom元素的高度  类似属性也可以获得 
+### [CSDN地址](https://blog.csdn.net/xhwy_zh)
