@@ -46,3 +46,4 @@ module.exports = {
 ### $refd.$el.children 可以获取dom并操作
 ### $refd.$el.children.offsetHeight 获取vue中dom元素的高度  类似属性也可以获得 
 ### [CSDN地址](https://blog.csdn.net/xhwy_zh)
+### 关于$refs.xx 获取高度  $refs.xx.offsetHeight $refs.xx.getArrtbuite('xx')
