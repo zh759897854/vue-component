@@ -48,3 +48,4 @@ module.exports = {
 ### [CSDN地址](https://blog.csdn.net/xhwy_zh)
 ### 关于$refs.xx 获取高度  $refs.xx.offsetHeight $refs.xx.getArrtbuite('xx')
 ### 添加了zrender绘图组件 等待更新
+ 
